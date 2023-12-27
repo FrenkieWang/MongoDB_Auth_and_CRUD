@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 function SignUp() {
   const [fname, setFname] = useState("");
@@ -9,32 +10,30 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log(fname, lname, email, password);
-    fetch("http://localhost:5000/user/register", {
-      method: "POST",
-      crossDomain: true,
+
+    axios.post("http://localhost:5000/user/register",{
+      fname,
+      lname,
+      email,
+      password,
+    }, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({
-        fname,
-        email,
-        lname,
-        password,
-      }),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "userRegister");
-        if (data.status == "ok") {
-          alert("Registration Successful");
-        } else {
-          alert("Something went wrong");
-        }
-      });    
+    .then(response => {
+      console.log(response.data, "userRegister");
+      if(response.data.status == "ok"){
+        alert("Registration Successful");
+      } else {
+        alert("Something went wrong");
+      }
+    })
+    .catch(error => {
+      console.log("There was an error!", error);
+    });   
   };
 
   return (

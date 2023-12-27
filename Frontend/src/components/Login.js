@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -7,35 +8,33 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     console.log(email, password);
-    fetch("http://localhost:5000/user/login-user", {
-      method: "POST",
-      crossDomain: true,
+    
+    axios.post("http://localhost:5000/user/login-user", {
+      email,
+      password,
+    }, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "userRegister");
-        if (data.status == "ok") {
-          alert("login successful");
-          window.localStorage.setItem("token", data.data);
-          window.localStorage.setItem("loggedIn", true);
-          // Only if Auth succeed, then routes to Home Page.
-          window.location.href = "./user-home";
-        }
-        else{
-          alert(data.error);
-        }
-      });
+    .then(response => {
+      console.log(response.data, "userRegister");
+      if (response.data.status == "ok") {
+        alert("login successful");
+        window.localStorage.setItem("token", response.data.data);
+        window.localStorage.setItem("loggedIn", true);
+        // Only if Auth succeed, then routes to Home Page.
+        window.location.href = "./user-home";
+      }
+      else{
+        alert(response.data.error);
+      }
+    })
+    .catch(error => {
+      console.error("There was an error!", error);
+    });
   }
 
   return (
