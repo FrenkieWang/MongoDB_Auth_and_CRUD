@@ -12,9 +12,9 @@ function Navbar(props){
       </div>
       <hr></hr>
        <p>Menu:</p>
-      <Link to="/" className="nav-link">Exercises</Link>
+      <Link to="/user-home">Exercises</Link>
       <br/>
-      <Link to="/user-home/create" className="nav-link">Create Exercise Log</Link>
+      <Link to="/user-home/create">Create Exercise Log</Link>
     </nav>
   );  
 }

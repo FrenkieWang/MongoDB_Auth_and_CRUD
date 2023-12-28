@@ -37,12 +37,10 @@ function SignUp() {
   };
 
   return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">
+    <div className="container">
         <form onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
-
-          <div className="mb-3">
+          <div  className="form-group">
             <label>First name</label>
             <input
               type="text"
@@ -51,8 +49,7 @@ function SignUp() {
               onChange={(e) => setFname(e.target.value)}
             />
           </div>
-
-          <div className="mb-3">
+          <div  className="form-group">
             <label>Last name</label>
             <input
               type="text"
@@ -61,8 +58,7 @@ function SignUp() {
               onChange={(e) => setLname(e.target.value)}
             />
           </div>
-
-          <div className="mb-3">
+          <div  className="form-group">
             <label>Email address</label>
             <input
               type="email"
@@ -71,8 +67,7 @@ function SignUp() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
-          <div className="mb-3">
+          <div  className="form-group">
             <label>Password</label>
             <input
               type="password"
@@ -81,17 +76,15 @@ function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
-          <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+          <div className="form-group">
+            <button type="submit">
               Sign Up
             </button>
           </div>
-          <p className="forgot-password text-right">
+          <p className="form-group">
             Already registered <Link to={"/sign-in"}><b>Sign in?</b></Link>
           </p>
         </form>
-      </div>
     </div>
   );
 }

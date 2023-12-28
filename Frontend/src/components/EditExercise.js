@@ -1,9 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 import {useState, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
+import axios from 'axios';
+
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 function EditExercise(props) {
   const [description, setDescription] = useState('');
@@ -51,18 +52,15 @@ function EditExercise(props) {
     }
 
     console.log(exercise);
-
     axios.post('http://localhost:5000/exercises/update/' + id, exercise)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    window.location = '/user-home';
   }
 
 
   return (
     <div>
-      <h2>11{props.userData.email}</h2>
-      <h3>{id}</h3>
       <h3>Edit Exercise Log</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group"> 
@@ -96,7 +94,11 @@ function EditExercise(props) {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+          <input
+           type="submit"
+           className="form-control"
+           value="Edit Exercise Log"
+          />
         </div>
       </form>
     </div>

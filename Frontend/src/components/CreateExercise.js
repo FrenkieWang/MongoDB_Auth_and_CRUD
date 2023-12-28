@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {useState, useRef} from 'react';
 import axios from 'axios';
+
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import {useState, useRef} from 'react';
 
 function CreateExercise(props) {
   const [description, setDescription] = useState('');
@@ -36,17 +37,15 @@ function CreateExercise(props) {
     }
 
     console.log(exercise);
-
     axios.post('http://localhost:5000/exercises/add', exercise)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    window.location = '/user-home';
   }
 
   return (
     <div>
       <h3>Create New Exercise Log</h3>
-      <h2>11{props.userData.email}</h2>
       <form onSubmit={onSubmit}>
         <div className="form-group"> 
           <label>Description: </label>
@@ -79,7 +78,11 @@ function CreateExercise(props) {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+          <input
+           type="submit"
+           className="form-control"
+           value="Create Exercise Log"
+           />
         </div>
       </form>
     </div>

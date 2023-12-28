@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {useState, useEffect} from 'react';
 
 function ExercisesList(props){
   const [exercises, setExercises] = useState([]);

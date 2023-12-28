@@ -43,11 +43,13 @@ function UserHome() {
     <div className="container">
       <Navbar userData = {userData}/>
       <br/>
+      
       <Routes>
         <Route path="/" element={<ExercisesList userData = {userData}/>} />
         <Route path="/edit/:id" element={<EditExercise userData = {userData}/>} />
         <Route path="/create" element={<CreateExercise userData = {userData}/>} />
       </Routes>
+      
       <button onClick={logOut}>
         Log Out
       </button>
