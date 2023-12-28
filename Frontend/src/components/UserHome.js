@@ -36,7 +36,7 @@ function UserHome() {
 
   const logOut = () => {
     window.localStorage.clear();
-    window.location.href = "./sign-in";
+    window.location.href = "./user-home";
   };
 
   return (
@@ -49,7 +49,7 @@ function UserHome() {
         <Route path="/edit/:id" element={<EditExercise userData = {userData}/>} />
         <Route path="/create" element={<CreateExercise userData = {userData}/>} />
       </Routes>
-      
+
       <button onClick={logOut}>
         Log Out
       </button>
