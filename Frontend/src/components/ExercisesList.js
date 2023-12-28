@@ -14,7 +14,7 @@ function ExercisesList(props){
     .catch((error) => {
       console.log(error);
     })
-  }, [exercises]);
+  }, []);
 
   function deleteExercise(id) {
     axios.delete('http://localhost:5000/exercises/'+id)
