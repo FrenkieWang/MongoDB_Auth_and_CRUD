@@ -23,8 +23,10 @@ mongoose
 
 app.use(express.urlencoded({ extended: false }));
 
-
+const exercisesRouter = require('./routes/exercisesRoute');
 const usersRouter = require('./routes/userRoute');
+
+app.use('/exercises', exercisesRouter);
 app.use('/user', usersRouter);
 
 app.listen(port, () => {

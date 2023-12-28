@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import axios from 'axios';
+
+import Navbar from "./Navbar"
+import ExercisesList from "./ExercisesList";
+import EditExercise from "./EditExercise";
+import CreateExercise from "./CreateExercise";
 
 function UserHome() {
   const [userData, setUserData] = useState("");
@@ -35,17 +42,17 @@ function UserHome() {
   };
 
   return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-        <div>          
-          Name<h1>{userData.fname} &nbsp; {userData.lname}</h1>
-          Email <h1>{userData.email}</h1>
-          <br />
-          <button onClick={logOut} className="btn btn-primary">
-            Log Out
-          </button>
-        </div>
-      </div>
+    <div className="container">
+      <Navbar userData = {userData}/>
+      <br/>
+      <Routes>
+        <Route path="/" element={<ExercisesList/>} />
+        <Route path="/edit/:id" element={<EditExercise/>} />
+        <Route path="/create" element={<CreateExercise/>} />
+      </Routes>
+      <button onClick={logOut} className="btn btn-light">
+        Log Out
+      </button>
     </div>
   );
 }
