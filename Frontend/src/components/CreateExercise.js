@@ -45,7 +45,7 @@ function CreateExercise(props) {
 
   return (
     <div>
-      <h3>Create New Exercise Log</h3>
+      <h3>Create New Exercise Page</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group"> 
           <label>Description: </label>

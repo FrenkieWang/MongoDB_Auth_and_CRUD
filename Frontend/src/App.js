@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -8,8 +8,9 @@ import UserHome from "./components/UserHome";
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
+        <h1>MongDB Auth+CRUD Project</h1>
         <Routes>
           <Route
             exact
@@ -21,7 +22,7 @@ function App() {
           <Route path="/user-home/*" element={<UserHome />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

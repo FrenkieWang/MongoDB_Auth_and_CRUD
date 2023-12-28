@@ -61,7 +61,7 @@ function EditExercise(props) {
 
   return (
     <div>
-      <h3>Edit Exercise Log</h3>
+      <h3>Edit Exercise Page:</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group"> 
           <label>Description: </label>

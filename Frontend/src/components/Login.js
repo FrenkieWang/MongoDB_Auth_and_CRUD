@@ -40,7 +40,7 @@ function Login() {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <h3>Sign In</h3>
+        <h2>Log In Page</h2>
         <div className="form-group">
           <label>Email address</label>
           <input

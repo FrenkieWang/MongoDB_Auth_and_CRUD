@@ -27,6 +27,7 @@ function SignUp() {
       console.log(response.data, "userRegister");
       if(response.data.status == "ok"){
         alert("Registration Successful");
+        window.location.href = "./sign-in";
       } else {
         alert("Something went wrong");
       }
@@ -38,53 +39,53 @@ function SignUp() {
 
   return (
     <div className="container">
-        <form onSubmit={handleSubmit}>
-          <h3>Sign Up</h3>
-          <div  className="form-group">
-            <label>First name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="First name"
-              onChange={(e) => setFname(e.target.value)}
-            />
-          </div>
-          <div  className="form-group">
-            <label>Last name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Last name"
-              onChange={(e) => setLname(e.target.value)}
-            />
-          </div>
-          <div  className="form-group">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div  className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <button type="submit">
-              Sign Up
-            </button>
-          </div>
-          <p className="form-group">
-            Already registered <Link to={"/sign-in"}><b>Sign in?</b></Link>
-          </p>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <h2>Sign Up Page</h2>
+        <div className="form-group">
+          <label>First name</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="First name"
+            onChange={(e) => setFname(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Last name</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last name"
+            onChange={(e) => setLname(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Enter email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <button type="submit">
+            Sign Up
+          </button>
+        </div>
+        <p className="form-group">
+          Already registered <Link to={"/sign-in"}><b>Sign in?</b></Link>
+        </p>
+      </form>
     </div>
   );
 }

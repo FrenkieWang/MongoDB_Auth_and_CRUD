@@ -14,7 +14,7 @@ function ExercisesList(props){
     .catch((error) => {
       console.log(error);
     })
-  }, []);
+  }, [exercises]);
 
   function deleteExercise(id) {
     axios.delete('http://localhost:5000/exercises/'+id)
@@ -31,7 +31,7 @@ function ExercisesList(props){
 
   return (
     <div>
-      <h3>Logged Exercises</h3>
+      <h3>Exercises List Page: </h3>
       <table className="table" border="2">
         <thead>
           <tr>

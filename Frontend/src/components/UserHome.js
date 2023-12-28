@@ -41,6 +41,7 @@ function UserHome() {
 
   return (
     <div className="container">
+      <h2>Home Page</h2>
       <Navbar userData = {userData}/>
       <br/>
       
@@ -50,6 +51,7 @@ function UserHome() {
         <Route path="/create" element={<CreateExercise userData = {userData}/>} />
       </Routes>
 
+      <hr/>
       <button onClick={logOut}>
         Log Out
       </button>

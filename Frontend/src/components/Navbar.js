@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 function Navbar(props){
 
   return (
-    <nav className="navbar bg-light">
-      <label>User Information:</label>
+    <div className="container">
       <div>
-        <h5>Name: {props.userData.fname} &nbsp; {props.userData.lname}</h5>
-        <h5>Email: {props.userData.email}</h5>
+        Welcome: <b style={{color:'red'}}>{props.userData.fname}&nbsp;{props.userData.lname}</b> !
       </div>
-      <hr></hr>
-       <p>Menu:</p>
-      <Link to="/user-home">Exercises</Link>
+      <div>
+        Your Email Address is : <b style={{color:'red'}}>{props.userData.email}</b>
+      </div>
+      <h4>Menu:</h4>      
+      <Link to="/user-home">Exercises List</Link>
       <br/>
       <Link to="/user-home/create">Create Exercise Log</Link>
-    </nav>
+      <hr/>
+    </div>
   );  
 }
 
