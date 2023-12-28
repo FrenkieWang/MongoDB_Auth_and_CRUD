@@ -8,8 +8,7 @@ const UserDetailsScehma = new Schema(
     lname: String,
     email: { type: String, unique: true },
     password: String,
-  },
-  {
+  }, {
     collection: "UserInfo",
   }
 );

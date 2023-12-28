@@ -7,12 +7,6 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET =
   "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe";
 
-  router.route('/').get((req, res) => {
-    User.find()
-      .then(users => res.json(users))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
-
 // Register a User
 router.route('/register').post( async (req, res) => {
   const { fname, lname, email, password} = req.body;
@@ -83,6 +77,5 @@ router.route('/userData').post(async (req, res) => {
       });
   } catch (error) { }
 });
-
 
 module.exports = router;
