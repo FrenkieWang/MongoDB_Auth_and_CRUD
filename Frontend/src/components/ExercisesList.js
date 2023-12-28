@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 
-function ExercisesList(){
+function ExercisesList(props){
   const [exercises, setExercises] = useState([]);
 
   useEffect(( ) => {
@@ -23,11 +23,17 @@ function ExercisesList(){
     setExercises(exercises.filter(el => el._id !== id));
   }
 
+  function currentUserEmail(){
+    return function (exerciseObject){
+      return exerciseObject.email === props.userData.email;
+    }
+  }
+
   return (
     <div>
       <h3>Logged Exercises</h3>
-      <table className="table">
-        <thead className="thead-light">
+      <table className="table" border="2">
+        <thead>
           <tr>
             <th>Username</th>
             <th>Description</th>
@@ -37,7 +43,7 @@ function ExercisesList(){
           </tr>
         </thead>
         <tbody>
-          {exercises.map(currentexercise =>(
+          {exercises.filter(currentUserEmail()).map(currentexercise =>(
             <tr key = {currentexercise._id}>
               <td>{currentexercise.username}</td>
               <td>{currentexercise.description}</td>

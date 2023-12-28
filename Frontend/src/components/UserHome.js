@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import axios from 'axios';
 
@@ -31,7 +30,6 @@ function UserHome() {
       }
     })
     .catch(error => {
-      // 处理错误情况
       console.error('There was an error!', error);         
     });
   }, []);
@@ -46,11 +44,11 @@ function UserHome() {
       <Navbar userData = {userData}/>
       <br/>
       <Routes>
-        <Route path="/" element={<ExercisesList/>} />
-        <Route path="/edit/:id" element={<EditExercise/>} />
-        <Route path="/create" element={<CreateExercise/>} />
+        <Route path="/" element={<ExercisesList userData = {userData}/>} />
+        <Route path="/edit/:id" element={<EditExercise userData = {userData}/>} />
+        <Route path="/create" element={<CreateExercise userData = {userData}/>} />
       </Routes>
-      <button onClick={logOut} className="btn btn-light">
+      <button onClick={logOut}>
         Log Out
       </button>
     </div>

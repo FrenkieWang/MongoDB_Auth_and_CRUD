@@ -5,14 +5,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import {useState, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 
-function EditExercise() {
-  const [username, setUsername] = useState('');
+function EditExercise(props) {
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
-  const [users, setUsers] = useState([]);
 
-  const usernameRef = useRef(null);
   const descriptionRef = useRef(null);
   const durationRef = useRef(null);
 
@@ -21,7 +18,6 @@ function EditExercise() {
   useEffect(( ) => {
     axios.get('http://localhost:5000/exercises/'+ id)
       .then(response => {
-        setUsername(response.data.username);
         setDescription(response.data.description);
         setDuration(response.data.duration);
         setDate(new Date(response.data.date));  
@@ -29,21 +25,7 @@ function EditExercise() {
       .catch(function (error) {
         console.log(error);
       })
-
-    axios.get('http://localhost:5000/users/')
-      .then(response => {
-        if (response.data.length > 0) {
-          setUsers(response.data.map((user) => (user.fname + " " + user.lname)));
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
   },[])
-
-  function onChangeUsername(e) {
-    setUsername(usernameRef.current.value);
-  }
 
   function onChangeDescription() {
     setDescription(descriptionRef.current.value);
@@ -61,10 +43,11 @@ function EditExercise() {
     e.preventDefault();
 
     const exercise = {
-      username: username,
+      username: props.userData.fname + " " + props.userData.lname,
       description: description,
       duration: duration,
-      date: date
+      date: date,
+      email: props.userData.email
     }
 
     console.log(exercise);
@@ -78,26 +61,10 @@ function EditExercise() {
 
   return (
     <div>
+      <h2>11{props.userData.email}</h2>
+      <h3>{id}</h3>
       <h3>Edit Exercise Log</h3>
       <form onSubmit={onSubmit}>
-        <div className="form-group"> 
-          <label>Username: </label>
-          <select 
-              required
-              className="form-control"
-              ref={usernameRef}
-              value = {username}
-              onChange={onChangeUsername}>
-              {
-                users.map((user, index) => (
-                  <option 
-                    key={index}
-                    value={user}>{user}
-                  </option>
-                ))
-              } 
-          </select>
-        </div>
         <div className="form-group"> 
           <label>Description: </label>
           <input  type="text"

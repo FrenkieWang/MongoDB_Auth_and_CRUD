@@ -68,7 +68,7 @@ function Login() {
               Submit
             </button>
           </div>
-          <p className="forgot-password text-right">
+          <p>
             <Link to={"/sign-up"}><b>Sign Up</b></Link> 
           </p>
         </form>

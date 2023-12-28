@@ -73,8 +73,8 @@ router.route('/userData').post(async (req, res) => {
       return res.send({ status: "error", data: "token expired" });
     }
 
-    const useremail = user.email;
-    User.findOne({ email: useremail })
+    const email = user.email;
+    User.findOne({ email: email })
       .then((data) => {
         res.send({ status: "ok", data: data });
       })

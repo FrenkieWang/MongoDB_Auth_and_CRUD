@@ -2,36 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import {useState, useEffect, useRef} from 'react';
+import {useState, useRef} from 'react';
 
-function CreateExercise() {
-  const [username, setUsername] = useState('');
+function CreateExercise(props) {
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
-  const [users, setUsers] = useState([]);
 
-  const usernameRef = useRef(null);
   const descriptionRef = useRef(null);
   const durationRef = useRef(null);
-
-  useEffect(( ) => {
-    axios.get('http://localhost:5000/users/')
-    .then(response => {
-      if (response.data.length > 0) {
-        console.log(response.data);
-        setUsers(response.data.map((user) => (user.fname + " " + user.lname)));
-        setUsername(response.data[0].fname + " " + response.data[0].lname);
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  },[])
-
-  function onChangeUsername() {
-    setUsername(usernameRef.current.value);
-  }
 
   function onChangeDescription() {
     setDescription(descriptionRef.current.value);
@@ -49,10 +28,11 @@ function CreateExercise() {
     e.preventDefault();
 
     const exercise = {
-      username: username,
+      username: props.userData.fname + " " + props.userData.lname,
       description: description,
       duration: duration,
-      date: date
+      date: date,
+      email: props.userData.email
     }
 
     console.log(exercise);
@@ -66,25 +46,8 @@ function CreateExercise() {
   return (
     <div>
       <h3>Create New Exercise Log</h3>
+      <h2>11{props.userData.email}</h2>
       <form onSubmit={onSubmit}>
-        <div className="form-group"> 
-          <label>Username: </label>
-          <select 
-              required
-              className="form-control"
-              ref = {usernameRef}
-              value = {username}
-              onChange={onChangeUsername}>
-              {
-                users.map((user, index) => (
-                  <option 
-                    key={index}
-                    value={user}>{user}
-                  </option>
-                ))
-              }
-          </select>
-        </div>
         <div className="form-group"> 
           <label>Description: </label>
           <input  type="text"
