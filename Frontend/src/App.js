@@ -11,6 +11,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <h1>MongDB Auth+CRUD Project</h1>
+        <h2>Made by <span style={{color:'blue'}}>Frenkie Wang</span></h2>
         <Routes>
           <Route
             exact

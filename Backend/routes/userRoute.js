@@ -4,8 +4,8 @@ let User = require('../models/userModel');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET =
-  "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe";
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Register a User
 router.route('/register').post( async (req, res) => {
@@ -48,8 +48,9 @@ router.route('/login-user').post( async (req, res) => {
     } else {
       return res.json({ error: "error" });
     }
+  } else {
+    res.json({ status: "error", error: "InvAlid Password" });
   }
-  res.json({ status: "error", error: "InvAlid Password" });
 });
 
 // get current userData
