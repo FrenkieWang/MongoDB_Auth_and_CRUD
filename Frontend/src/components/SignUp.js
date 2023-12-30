@@ -31,10 +31,7 @@ function SignUp() {
       } else {
         alert("Something went wrong");
       }
-    })
-    .catch(error => {
-      console.log("There was an error!", error);
-    });   
+    }) 
   };
 
   return (

@@ -49,7 +49,7 @@ router.route('/login-user').post( async (req, res) => {
       return res.json({ error: "error" });
     }
   } else {
-    res.json({ status: "error", error: "InvAlid Password" });
+    res.json({ status: "error", error: "InValid Password" });
   }
 });
 

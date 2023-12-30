@@ -32,9 +32,6 @@ function Login() {
         alert(response.data.error);
       }
     })
-    .catch(error => {
-      console.error("There was an error!", error);
-    });
   }
 
   return (

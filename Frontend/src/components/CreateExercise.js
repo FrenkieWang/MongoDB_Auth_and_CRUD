@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 import DatePicker from 'react-datepicker';
@@ -9,17 +8,6 @@ function CreateExercise(props) {
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
-
-  const descriptionRef = useRef(null);
-  const durationRef = useRef(null);
-
-  function onChangeDescription() {
-    setDescription(descriptionRef.current.value);
-  }
-
-  function onChangeDuration() {
-    setDuration(durationRef.current.value);
-  }
 
   function onChangeDate(date) {
     setDate(date);
@@ -52,9 +40,8 @@ function CreateExercise(props) {
           <input  type="text"
               required
               className="form-control"
-              ref={descriptionRef}
               value = {description}
-              onChange={onChangeDescription}
+              onChange={(e) => setDescription(e.target.value)}
               />
         </div>
         <div className="form-group">
@@ -62,9 +49,8 @@ function CreateExercise(props) {
           <input 
               type="text" 
               className="form-control"
-              ref = {durationRef}
               value = {duration}
-              onChange={onChangeDuration}
+              onChange={(e) => setDuration(e.target.value)}
               />
         </div>
         <div className="form-group">

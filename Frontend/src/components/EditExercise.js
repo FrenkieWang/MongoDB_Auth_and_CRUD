@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,9 +9,6 @@ function EditExercise(props) {
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
-
-  const descriptionRef = useRef(null);
-  const durationRef = useRef(null);
 
   let { id } = useParams();
 
@@ -27,14 +23,6 @@ function EditExercise(props) {
         console.log(error);
       })
   },[])
-
-  function onChangeDescription() {
-    setDescription(descriptionRef.current.value);
-  }
-
-  function onChangeDuration() {
-    setDuration(durationRef.current.value);
-  }
 
   function onChangeDate(date) {
     setDate(date);
@@ -58,7 +46,6 @@ function EditExercise(props) {
     window.location = '/user-home';
   }
 
-
   return (
     <div>
       <h3>Edit Exercise Page:</h3>
@@ -68,9 +55,8 @@ function EditExercise(props) {
           <input  type="text"
               required
               className="form-control"
-              ref={descriptionRef}
               value = {description}
-              onChange={onChangeDescription}
+              onChange={(e) => setDescription(e.target.value)}
               />
         </div>
         <div className="form-group">
@@ -78,9 +64,8 @@ function EditExercise(props) {
           <input 
               type="text" 
               className="form-control"
-              ref={durationRef}
               value = {duration}
-              onChange={onChangeDuration}
+              onChange={(e) => setDuration(e.target.value)}
               />
         </div>
         <div className="form-group">
