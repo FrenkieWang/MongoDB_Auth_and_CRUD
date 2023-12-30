@@ -27,9 +27,9 @@ const usersRouter = require('./routes/userRoute');
 app.use('/exercises', exercisesRouter);
 app.use('/user', usersRouter);
 
-// 简单写一个接口
+// Test the Vercel
 app.get("/", (req, res) => {
-	res.send("这是一个Node express简单服务。");
+	res.send("You succeeded to deploy backend to Vercel!");
 });
 
 app.listen(port, () => {
