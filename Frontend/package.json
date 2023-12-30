@@ -19,17 +19,13 @@
     "react-router-dom": "^6.21.1",
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6",
-    "vite": "^5.0.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    // "start": "react-scripts start",
-    // "build": "react-scripts build",
-    // "test": "react-scripts test",
-    // "eject": "react-scripts eject"
-    "dev": "vite --port 3000",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
