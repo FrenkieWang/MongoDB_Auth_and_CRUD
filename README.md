@@ -10,7 +10,7 @@ You should deploy backend (NodeJS + ExpressJS) on Vercel first,
 then deploy frontend (ReactJs) on Vercel!
 
 
-##STEP 1: [Deploy Backend]
+## STEP 1: [Deploy Backend]
 In backend, the main file is **server.js**
 
 Go to **package.json**,   change **"main"** into **"server.js"**,
@@ -32,7 +32,7 @@ Copy all the data of **".env"** file, and paste them into **Environment Variable
 6) You can see "You succeeded to deploy backend to Vercel!".
 
 
-##STEP 2: [Deploy Frontend]
+## STEP 2: [Deploy Frontend]
 1) Open www.vercel.com
 
 2) Add New -> Project
@@ -49,7 +49,7 @@ Root Directory, select **frontend**.
 You should deploy backend first, then deploy frontend.
 That frontend pages is connect with backend server!.
 
-##Reference:
+## Reference:
 https://www.youtube.com/watch?v=7CqJlxBYj-M
 
 https://www.youtube.com/watch?v=adMD46G5BXU&list=LL&index=6&t=14s
