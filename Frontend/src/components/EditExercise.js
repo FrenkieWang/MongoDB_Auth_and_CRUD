@@ -40,7 +40,7 @@ function EditExercise(props) {
     }
 
     console.log(exercise);
-    axios.post('https://mern-stack-tutorial-backend.vercel.app/update/' + id, exercise)
+    axios.post('https://mern-stack-tutorial-backend.vercel.app/exercises/update/' + id, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/user-home';
