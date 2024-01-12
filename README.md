@@ -1,7 +1,7 @@
 This is a MongoDB with Auth.
 
 I have deployed the project on the website
-https://mern-stack-tutorial-frontend.vercel.app/user-home
+https://mern-stack-tutorial-frontend.vercel.app/
 
 This is the backend deployment:
 https://mern-stack-tutorial-backend.vercel.app/
