@@ -62,4 +62,4 @@ function UserHome() {
 export default UserHome;
 
 // Change "http://localhost:5000" 
-// into "https://mern-stack-tutorial-backend.vercel.app:5000/"
+// into "https://mern-stack-tutorial-backend.vercel.app/"
