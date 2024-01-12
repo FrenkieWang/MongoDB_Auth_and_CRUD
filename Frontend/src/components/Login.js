@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault();
     console.log(email, password);
     
-    axios.post("https://mern-stack-tutorial-backend.vercel.app/login-user", {
+    axios.post("https://mern-stack-tutorial-backend.vercel.app:5000/login-user", {
       email,
       password,
     }, {
