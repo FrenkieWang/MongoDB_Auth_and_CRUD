@@ -13,7 +13,7 @@ function EditExercise(props) {
   let { id } = useParams();
 
   useEffect(( ) => {
-    axios.get('https://mern-stack-tutorial-backend.vercel.app:5000/exercises/'+ id)
+    axios.get('https://mern-stack-tutorial-backend.vercel.app/exercises/'+ id)
       .then(response => {
         setDescription(response.data.description);
         setDuration(response.data.duration);
@@ -40,7 +40,7 @@ function EditExercise(props) {
     }
 
     console.log(exercise);
-    axios.post('https://mern-stack-tutorial-backend.vercel.app:5000/update/' + id, exercise)
+    axios.post('https://mern-stack-tutorial-backend.vercel.app/update/' + id, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/user-home';

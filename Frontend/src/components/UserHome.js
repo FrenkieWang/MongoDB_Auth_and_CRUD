@@ -11,7 +11,7 @@ function UserHome() {
   const [userData, setUserData] = useState("");
 
   useEffect(() => {
-    axios.post("https://mern-stack-tutorial-backend.vercel.app:5000/user/userData", {
+    axios.post("https://mern-stack-tutorial-backend.vercel.app/user/userData", {
       token: window.localStorage.getItem("token"),
     }, {
       headers: {
