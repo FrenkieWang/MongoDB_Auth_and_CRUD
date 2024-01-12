@@ -12,7 +12,7 @@ function SignUp() {
     e.preventDefault();
     console.log(fname, lname, email, password);
 
-    axios.post("http://localhost:5000/user/register",{
+    axios.post("https://mern-stack-tutorial-backend.vercel.app/user/register",{
       fname,
       lname,
       email,

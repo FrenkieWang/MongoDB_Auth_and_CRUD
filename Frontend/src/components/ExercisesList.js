@@ -7,7 +7,7 @@ function ExercisesList(props){
   const [exercises, setExercises] = useState([]);
 
   useEffect(( ) => {
-    axios.get('http://localhost:5000/exercises/')
+    axios.get('https://mern-stack-tutorial-backend.vercel.app/exercises/')
     .then(response => {
       setExercises(response.data);
     })
@@ -17,7 +17,7 @@ function ExercisesList(props){
   }, []);
 
   function deleteExercise(id) {
-    axios.delete('http://localhost:5000/exercises/'+id)
+    axios.delete('https://mern-stack-tutorial-backend.vercel.app/exercises/'+id)
       .then(response => { console.log(response.data)});
 
     setExercises(exercises.filter(el => el._id !== id));
